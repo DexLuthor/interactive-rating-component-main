@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/*==========*/
+/* Main CSS */
+/*==========*/
+
+:root {
+    /* Colors */
+    --clr-primary-orange: hsl(25, 97%, 53%);
+    --clr-neutral-white: hsl(0, 0%, 100%);
+    --clr-neutral-light-grey: hsl(217, 12%, 63%);
+    --clr-neutral-medium-grey: hsl(216, 12%, 54%);
+    --clr-neutral-dark-blue: hsl(213, 19%, 18%);
+    --clr-neutral-very-dark-blue: hsl(216, 12%, 8%);
+
+    /* Typography */
+    --font-size-heading: 28px;
+    --font-size-regular: 15px;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    display: grid;
+    place-content: center;
+    font-family: 'Overpass', sans-serif;
+    font-size: var(--font-size-regular);
+    background-color: var(--clr-neutral-very-dark-blue);
+}
+
+.modal {
+    width: 412px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    background-image: radial-gradient(circle at top, #232A34, #181E27);
+    border-radius: 30px;
+}
+
+.modal__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    background: var(--clr-neutral-dark-blue) url('images/icon-star.svg') no-repeat center;
+}
+
+.modal__heading {
+    font-size: var(--font-size-heading);
+    color: var(--clr-neutral-white);
+    margin-top: 30px;
+}
+
+.modal__description {
+    margin-top: 15px;
+    color: var(--clr-neutral-light-grey);
+    line-height: 1.6;
+}
+
+.modal__rating {
+    display: flex;
+    margin-top: 24px;
+    justify-content: space-between;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color .3s ease, color .3s ease;
+}
+
+.btn-submit {
+    background-color: var(--clr-primary-orange);
+    color: var(--clr-neutral-white);
+    border-radius: 30px;
+    margin-top: 32px;
+    height: 45px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-submit:hover,
+.btn-submit:focus-visible {
+    background-color: var(--clr-neutral-white);
+    color: var(--clr-primary-orange)
+}
+
+.btn-rating {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    background-color: var(--clr-neutral-dark-blue);
+    color: var(--clr-neutral-medium-grey);
+}
+
+.btn-rating:hover,
+.btn-rating:focus-visible {
+    background-color: var(--clr-neutral-light-grey);
+    color: var(--clr-neutral-white);
+}
+
+.btn-rating.btn-rating-active {
+    background-color: var(--clr-primary-orange);
+    color: var(--clr-neutral-white);
+}
+
+/* =============== */
+/* Modal thank you */
+/* =============== */
+.modal-ty {
+    align-items: center;
+}
+
+.modal-ty__icon {
+    width: 144px;
+    height: 96px;
+    background: url('images/illustration-thank-you.svg') center no-repeat;
+    background-size: contain;
+}
+
+.modal__selection {
+    color: var(--clr-primary-orange);
+    background-color: var(--clr-neutral-dark-blue);
+    padding: 4px 20px;
+    border-radius: 30px;
+    margin-top: 32px;
+}
+
+.modal__description--centered {
+    text-align: center;
+}
+
+@media only screen and  (max-width: 375px) {
+    .modal {
+        width: 327px;
+    }
+}
